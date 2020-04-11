@@ -13,19 +13,36 @@
 # with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
 %>
 
-<div class="background">
-  <div class="container pt-9 pb-8">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 text-center">
-        <h1 id="main-text" class="display-4 mb-4"> <%= t("landing.welcome").html_safe %></h1>
-        <p class="lead offset-lg-2 col-lg-8 col-sm-12 "><%= t("landing.about", href: link_to(t("greenlight"), "https://bigbluebutton.org/2018/07/09/greenlight-2-0/", target: "_blank", rel: "noopener")).html_safe %></p>
-        <%= link_to "https://youtu.be/Hso8yLzkqj8", target: "_blank" do %>
-          <h4><%= t("landing.video") %> <i class="far fa-play-circle ml-1"></i></h4>
-        <% end %>
-      </div>
+<div class="background"><div class="container pt-9 pb-8"><div class="row">
+<div class="col-md-12 col-sm-12">
+    <h1 id="main-text" class="display-4 mb-4">Videokonferenzen mit BigBlueButton</h1>
+    <p class="lead offset-lg-2 col-lg-8 col-sm-12 ">
+        Willkommen beim Service für Videokonferenzen der
+        <a href="https://neustadtpiraten.de">Neustadtpiraten</a>, der
+        <a href="https://neustadtpiraten.de">Hochschulpiraten Dresden</a>, der
+        <a href="https://neustadtpiraten.de">Piraten Sachsen</a> und der
+        <a href="https://piraten-dresden.de">Piraten Dresden</a>. Wir nutzen dafür
+        die Open-Source-Software <a href="https://bigbluebutton.org/">BigBlueButton</a>
+        und <a href="https://bigbluebutton.org/2018/07/09/greenlight-2-0/">Greenlight</a>
+        auf einem Server von <a href="https://hetzner.de">Hetzner</a>.
+    </p>
+</div></div></div></div>
 
+<div class="container mt-8 mb-6">
+
+  <h2 class="mb-6">Hinweise</h2>
+
+  <div class="row feature-stamp">
+    <div class="col-lg-3 col-md-6">
+      <div class="feature-item">
+        <h4 class="mt-4">Wofür ist dieser Dienst?</h4>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+      <h4 class="mt-4">Wie nutze ich den Dienst?</h4>
+    </div>
+    <div class="col-lg-3 col-md-6">
+      <h4 class="mt-4">Geht es auch einfacher?</h4>
     </div>
   </div>
 </div>
-
-<%= render "main/components/features" %>
