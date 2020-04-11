@@ -1,3 +1,9 @@
+# Greenlight Pirate Version
+
+A version used on the pirate bbb instance on https://meet.piratensommer.de, driven by the [Neustadtpiraten](https://neustadtpiraten.de), [Hochschulpiraten Dresden](https://hopidd.de), [Piraten Sachsen](https://piraten-sachsen.de) and [Piraten Dresden](https://piraten-dresden.de).
+
+Primarily we change the **landing page**.
+
 # Greenlight
 
 ![Travis CI](https://travis-ci.org/bigbluebutton/greenlight.svg?branch=master)
