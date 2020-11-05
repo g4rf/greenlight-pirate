@@ -131,8 +131,8 @@ en:
       title: Server Rooms
       table:
         id: ID
-        not_running: Not Running
-        running: Running
+        not_running: no conference
+        running: active
         status: Status
         view: View
     title: Organization Settings

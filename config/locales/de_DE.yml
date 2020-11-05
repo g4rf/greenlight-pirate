@@ -131,8 +131,8 @@ de_DE:
       title: Serverräume
       table:
         id: ID
-        not_running: Läuft nicht
-        running: Läuft
+        not_running: keine Konferenz
+        running: aktiv
         status: Status
         view: Ansehen
     title: Organisationseinstellungen

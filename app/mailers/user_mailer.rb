@@ -86,7 +86,8 @@ class UserMailer < ApplicationMailer
     @image = logo_image
     @color = user_color
 
-    mail to: admin_emails, subject: t('mailer.user.approve.signup.subject')
+    # uncommented for gdpr reasons
+    # mail to: admin_emails, subject: t('mailer.user.approve.signup.subject')
   end
 
   def invite_user_signup(user, url, admin_emails, settings)
@@ -96,6 +97,7 @@ class UserMailer < ApplicationMailer
     @image = logo_image
     @color = user_color
 
-    mail to: admin_emails, subject: t('mailer.user.invite.signup.subject')
+    # uncommented for gdpr reasons
+    # mail to: admin_emails, subject: t('mailer.user.invite.signup.subject')
   end
 end
