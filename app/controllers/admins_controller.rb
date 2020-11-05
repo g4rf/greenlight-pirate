@@ -70,8 +70,7 @@ class AdminsController < ApplicationController
 
     @user_list = shared_user_list if shared_access_allowed
 
-    # @pagy, @rooms = pagy_array(server_rooms_list)
-    @rooms = server_rooms_list
+    @pagy, @rooms = pagy_array(server_rooms_list)
   end
 
   # MANAGE USERS
