@@ -414,11 +414,13 @@ class RoomsController < ApplicationController
 
   def record_meeting
     # If the require consent setting is checked, then check the room setting, else, set to true
-    if recording_consent_required?
-      room_setting_with_config("recording")
-    else
-      true
-    end
+    #if recording_consent_required?
+    #  room_setting_with_config("recording")
+    #else
+    #  true
+    #end
+    # changed to false as we never ever want recordings server side --garfield
+    false
   end
 
   # Checks if the file extension is allowed
