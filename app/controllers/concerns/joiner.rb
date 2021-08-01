@@ -50,10 +50,11 @@ module Joiner
   def join_room(opts)
     @room_settings = JSON.parse(@room[:room_settings])
 
-    if room_running?(@room.bbb_id) || @room.owned_by?(current_user) || room_setting_with_config("anyoneCanStart")
+    moderator_privileges = @room.owned_by?(current_user) || valid_moderator_access_code(session[:moderator_access_code])
+    if room_running?(@room.bbb_id) || room_setting_with_config("anyoneCanStart") || moderator_privileges
 
       # Determine if the user needs to join as a moderator.
-      opts[:user_is_moderator] = @room.owned_by?(current_user) || room_setting_with_config("joinModerator") || @shared_room
+      opts[:user_is_moderator] = room_setting_with_config("joinModerator") || @shared_room || moderator_privileges
       opts[:record] = record_meeting
       opts[:require_moderator_approval] = room_setting_with_config("requireModeratorApproval")
       opts[:mute_on_start] = room_setting_with_config("muteOnStart")
@@ -83,7 +84,8 @@ module Joiner
 
   # Default, unconfigured meeting options.
   def default_meeting_options
-    invite_msg = I18n.t("invite_message")
+    moderator_message = "#{I18n.t('invite_message')}<br> #{request.base_url + room_path(@room)}"
+    moderator_message += "<br> #{I18n.t('modal.create_room.access_code')}: #{@room.access_code}" if @room.access_code.present?
     {
       user_is_moderator: false,
       meeting_logout_url: request.base_url + logout_room_path(@room),
