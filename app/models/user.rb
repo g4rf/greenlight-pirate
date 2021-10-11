@@ -212,7 +212,7 @@ class User < ApplicationRecord
   end
 
   def create_home_room
-    room = Room.create!(owner: self, name: I18n.t("home_room"))
+    room = Room.create!(owner: self, name: I18n.t("home_room"), voice_bridge: Room.generate_voice_bridge())
     update_attributes(main_room: room)
   end
 
