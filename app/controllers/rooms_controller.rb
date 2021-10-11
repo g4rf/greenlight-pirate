@@ -180,6 +180,7 @@ class RoomsController < ApplicationController
     opts[:mute_on_start] = room_setting_with_config("muteOnStart")
     opts[:require_moderator_approval] = room_setting_with_config("requireModeratorApproval")
     opts[:record] = record_meeting
+    opts[:avatarURL] = current_user.image if current_user.image.present? && valid_avatar?(current_user.image)
 
     begin
       redirect_to join_path(@room, current_user.name, opts, current_user.uid)
@@ -435,13 +436,12 @@ class RoomsController < ApplicationController
 
   def record_meeting
     # If the require consent setting is checked, then check the room setting, else, set to true
-    #if recording_consent_required?
-    #  room_setting_with_config("recording")
-    #else
-    #  true
-    #end
-    # changed to false as we never ever want recordings server side --garfield
-    false
+    user = current_user || @room.owner
+    if recording_consent_required?
+      room_setting_with_config("recording") && user&.role&.get_permission("can_launch_recording")
+    else
+      user&.role&.get_permission("can_launch_recording")
+    end
   end
 
   # Checks if the file extension is allowed
